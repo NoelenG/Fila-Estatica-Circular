@@ -38,7 +38,7 @@ public class QueueTest {
 
         int resp = queue.peek();
 
-        assertEquals("O valor no inicio da fila após 2 iserções deve ser 2", 2, resp);
+        assertEquals("O valor no inicio da fila após 2 iserções deve ser 1", 1, resp);
     }
 
     @Test
