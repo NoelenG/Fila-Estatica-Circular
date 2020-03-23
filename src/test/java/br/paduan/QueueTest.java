@@ -23,7 +23,7 @@ public class QueueTest {
     }
 
     @Test
-    @Ignore
+
     public void testEnqueue() {
         queue.enqueue(1);
         boolean vazia = queue.isEmpty();
@@ -52,6 +52,7 @@ public class QueueTest {
     }
 
     @Test
+
     public void testIsFull() {
         queue.enqueue(1);
         queue.enqueue(2);
@@ -62,9 +63,7 @@ public class QueueTest {
         assertTrue("A fila com tamanho 3 deve estar cheia após 3 inserções", full);
     }
 
-    
-    
-    
+
     @Test
     public void testDequeue() {
         queue.enqueue(1);
@@ -105,5 +104,22 @@ public class QueueTest {
         assertEquals("A quantidade de elementos não deve ser alterada se está vazia", 0, size);
     }
 
-
+    public void testEnqueueDequeueManyTimes() {
+        queue.enqueue(1);
+        queue.enqueue(2);
+        
+        int value1 = queue.dequeue();
+        int value2 = queue.dequeue();
+        
+        assertEquals("Remover o primeiro elemento deve ser 1", 1, value1);
+        assertEquals("Remover o segundo elemento deve ser 2", 2, value2);
+        
+        queue.enqueue(3);
+        queue.enqueue(4);
+        
+         value1 = queue.dequeue();
+         value2 = queue.dequeue();
+         assertEquals("Remover o primeiro elemento deve ser 3", 3, value1);
+         assertEquals("Remover o segundo elemento deve ser 4", 4, value2);
+    }
 }
